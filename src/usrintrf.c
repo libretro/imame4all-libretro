@@ -3450,8 +3450,10 @@ if (Machine->gamedrv->flags & GAME_COMPUTER)
 
 	/* if the user pressed ESC, stop the emulation */
 	/* but don't quit if the setup menu is on screen */
+#ifndef __LIBRETRO__
 	if (setup_selected == 0 && input_ui_pressed(IPT_UI_CANCEL))
 		return 1;
+#endif
 
 	if (setup_selected == 0 && input_ui_pressed(IPT_UI_CONFIGURE))
 	{
